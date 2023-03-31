@@ -1,0 +1,116 @@
+body {
+    background-color: rgb(61, 58, 58);
+    margin: 0;
+    overflow: auto;
+}
+
+p {
+    margin: 1vh;
+}
+
+h4 {
+    margin-left: 5vh;
+}
+
+li {
+    background-color: rgb(197, 192, 187);
+    padding: 2vh;
+    width: fit-content;
+    margin-bottom: 5vh;
+    border-radius: 1vh;
+    list-style: none;
+    transition: background-color 0.25s;
+    color: black;
+    font-weight: bold;
+    font-size: 2.5vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+li:hover {
+    cursor: pointer;
+    background-color: rgb(129, 121, 121);
+}
+
+#search-form {
+    background-color: black;
+    width: fit-content;
+    padding: 1vw;
+    display: flex;
+    justify-content: space-around;
+    position: sticky;
+    top: 1vh;
+    font-size: 5vh;
+    color: wheat;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 2.5vh 2.5vh 2.5vh 2.5vh;
+    border-radius: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1vh;
+}
+
+#enter {
+    width: 10vw;
+    font-size: 2.5vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#enter:hover {
+    cursor: pointer;
+}
+
+#searchTerm {
+    width: 50vw;
+    font-size: 2.5vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 2vh;
+}
+
+#video-list-container {
+    margin-top: 7.5vh;
+    color: wheat;
+    font-size: 5vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#video-player-container {
+    position: sticky;
+    background-color: rgba(0, 0, 0, 0.397);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+#video-player {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    left: 10vw;
+    top: 7.5vh;
+    width: 80vw;
+    height: 85vh;
+    z-index: 10;
+    border-radius: 1vh;
+}
+
+video {
+    max-width: 80vw;
+    max-height: 85vh;
+}
+
+#close-button {
+    background-color: black;
+    position: absolute;
+    width: 10vh;
+    height: 10vh;
+    color: white;
+    top: 5vh;
+    left: 2.5vw;
+    border-radius: 10000px;
+    font-size: 7vh;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 0.75vh solid gray;
+    cursor: pointer;
+}

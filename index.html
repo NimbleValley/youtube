@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Videos</title>
+</head>
+
+<body>
+    <div id="video-player-container">
+        <div id="close-button" onclick="hideVideo()">x</div>
+        <div id="video-player">
+            <video id="video" data-yt2html5="https://www.youtube.com/watch?v=ScMzIvxBSi4" controls>
+
+            </video>
+        </div>
+    </div>
+
+    <form id="search-form">
+        <label for="fname">Search:</label>
+        <input type="text" id="searchTerm" value="Video Title">
+        <input id="enter" type="submit" value="Submit" onclick="">
+    </form>
+
+    <div id="video-list-container"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/gh/thelevicole/youtube-to-html5-loader@4.0.1/dist/YouTubeToHtml5.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="custom.js"></script>
+
+</html>
