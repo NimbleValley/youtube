@@ -1,13 +1,19 @@
-const controller = new YouTubeToHtml5({
-	autoload: false,
+var controller = new YouTubeToHtml5({
+    formats: "*",
+    autoload: false,
     withAudio: true,
-    formats: ['1080p', '720p']
+    withVideo: true
 });
+
+controller.load();
+
+const keys = ["AIzaSyAYNCrI8eJBlx_2tXo50VCphZSjRkXErF4", "AIzaSyB6hVYRqFlkAvPGYmrKaQ-DlIdK8GMAOuw"];
+var keyIndex = 0;
 
 gapi.load("client", loadClient);
 
 function loadClient() {
-    gapi.client.setApiKey("AIzaSyAYNCrI8eJBlx_2tXo50VCphZSjRkXErF4");
+    gapi.client.setApiKey(keys[keyIndex]);
     return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
         .then(function () { console.log("GAPI client loaded for API"); },
             function (err) { console.error("Error loading GAPI client for API", err); });
@@ -64,8 +70,11 @@ function execute() {
                 listItems.forEach(item => {
                     const videoId = item.id.videoId;
                     const videoTitle = item.snippet.title;
+                    const channelTitle = item.snippet.channelTitle;
+                    const dimension = item;
+                    console.log(dimension);
                     output += `
-                    <li><a onclick="showVideo('https://www.youtube.com/watch?v=${videoId}')"><img src="http://i3.ytimg.com/vi/${videoId}/hqdefault.jpg" /></a><p>${videoTitle}</p></li>
+                    <li><a onclick="showVideo('https://www.youtube.com/watch?v=${videoId}?version=3&vq=hd1080')"><img src="http://i3.ytimg.com/vi/${videoId}/hqdefault.jpg" /></a><p><strong>${channelTitle}</strong> - ${videoTitle}</p></li>
                 `;
                 });
                 output += '</ul>';
@@ -82,7 +91,14 @@ function execute() {
                 videoList.innerHTML = output;
             }
         },
-            function (err) { console.error("Execute error", err); });
+            function (error) { 
+            console.error("Execute error", error);
+            if(error.status == 403) {
+                keyIndex ++;
+                alert("Error 403: Server is full, taking you to server " + (keyIndex + 1));
+                gapi.load("client", loadClient);
+            }
+        });
 }
 
 function showVideo(data) {

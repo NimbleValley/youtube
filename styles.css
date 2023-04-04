@@ -6,6 +6,11 @@ body {
 
 p {
     margin: 1vh;
+    font-weight: normal;
+}
+
+.bold {
+
 }
 
 h4 {
@@ -21,7 +26,6 @@ li {
     list-style: none;
     transition: background-color 0.25s;
     color: black;
-    font-weight: bold;
     font-size: 2.5vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -51,12 +55,18 @@ li:hover {
 
 #enter {
     width: 10vw;
-    font-size: 2.5vh;
+    font-size: 3.5vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(235, 235, 235);
+    transition: font-size 0.25s, background-color 0.25s;
+    border: none;
+    font-weight: bold;
 }
 
 #enter:hover {
     cursor: pointer;
+    background-color: orange;
+    font-size: 4vh;
 }
 
 #searchTerm {
@@ -64,6 +74,13 @@ li:hover {
     font-size: 2.5vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-left: 2vh;
+    border: none;
+    border-right: 0.25vw solid black;
+    transition: background-color 0.25s;
+}
+
+#searchTerm:hover {
+    background-color: rgb(184, 184, 184);
 }
 
 #video-list-container {
@@ -97,6 +114,7 @@ li:hover {
 video {
     max-width: 80vw;
     max-height: 85vh;
+    
 }
 
 #close-button {
@@ -110,7 +128,23 @@ video {
     border-radius: 10000px;
     font-size: 7vh;
     text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     border: 0.75vh solid gray;
     cursor: pointer;
+    scale: 1;
+    transition: scale 0.15s;
+}
+
+#close-button:hover {
+    scale: 1.15;
+}
+
+#warning {
+    width: 90vw;
+    font-size: 2.5vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 2vh;
+    border: none;
+    transition: background-color 0.25s;
+    color: red;
 }
