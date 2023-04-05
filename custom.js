@@ -1,5 +1,4 @@
 var controller = new YouTubeToHtml5({
-    formats: "*",
     autoload: false,
     withAudio: true,
     withVideo: true
