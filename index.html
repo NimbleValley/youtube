@@ -13,14 +13,14 @@
 </head>
 
 <body>
-    <div id="warning">All videos are in low quality, issue will hopefully be solved soon. 720p is blocked for music videos (CORs).</div>
-    
+    <div id="warning">All videos are in low quality, issue will hopefully be solved soon. 720p is blocked for music
+        videos (CORs).</div>
+
     <div id="video-player-container">
         <div id="close-button" onclick="hideVideo()">x</div>
         <div id="video-player">
-            <video id="video" data-yt2html5="https://www.youtube.com/watch?v=ScMzIvxBSi4" controls>
+            <iframe id="video" width="560" height="315" src="https://www.youtube-nocookie.com/embed/yemH1sbKSQ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-            </video>
         </div>
     </div>
 
@@ -33,7 +33,6 @@
     <div id="video-list-container"></div>
 
 </body>
-<script src="https://cdn.jsdelivr.net/gh/thelevicole/youtube-to-html5-loader@5.0.0/dist/YouTubeToHtml5.js"></script>-->
 <script src="https://apis.google.com/js/api.js"></script>
 <script src="custom.js"></script>
 

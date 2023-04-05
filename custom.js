@@ -1,11 +1,3 @@
-var controller = new YouTubeToHtml5({
-    autoload: false,
-    withAudio: true,
-    withVideo: true
-});
-
-controller.load();
-
 const keys = ["AIzaSyAYNCrI8eJBlx_2tXo50VCphZSjRkXErF4", "AIzaSyB6hVYRqFlkAvPGYmrKaQ-DlIdK8GMAOuw"];
 var keyIndex = 0;
 
@@ -73,7 +65,7 @@ function execute() {
                     const dimension = item;
                     console.log(dimension);
                     output += `
-                    <li><a onclick="showVideo('https://www.youtube.com/watch?v=${videoId}')"><img src="http://i3.ytimg.com/vi/${videoId}/hqdefault.jpg" /></a><p><strong>${channelTitle}</strong> - ${videoTitle}</p></li>
+                    <li><a onclick="showVideo('https://www.youtube.com/watch?v=${videoId}?version=3&vq=hd1080')"><img src="http://i3.ytimg.com/vi/${videoId}/hqdefault.jpg" /></a><p><strong>${channelTitle}</strong> - ${videoTitle}</p></li>
                 `;
                 });
                 output += '</ul>';
@@ -104,7 +96,7 @@ function showVideo(data) {
     videoPlayerContainer.style.display = "block";
     document.body.style.overflow = "hidden";
 
-    videoContainer.innerHTML = `<video data-yt2html5="${data}" controls></video>`;
+    videoContainer.innerHTML = `<iframe id="video" src="https://www.youtube-nocookie.com/embed/${data}" title="Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
 
     controller.load();
 }
