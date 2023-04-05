@@ -73,7 +73,7 @@ function execute() {
                     const dimension = item;
                     console.log(dimension);
                     output += `
-                    <li><a onclick="showVideo('https://www.youtube.com/watch?v=${videoId}?version=3&vq=hd1080')"><img src="http://i3.ytimg.com/vi/${videoId}/hqdefault.jpg" /></a><p><strong>${channelTitle}</strong> - ${videoTitle}</p></li>
+                    <li><a onclick="showVideo('https://www.youtube.com/watch?v=${videoId}')"><img src="http://i3.ytimg.com/vi/${videoId}/hqdefault.jpg" /></a><p><strong>${channelTitle}</strong> - ${videoTitle}</p></li>
                 `;
                 });
                 output += '</ul>';
