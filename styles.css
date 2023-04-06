@@ -146,7 +146,7 @@ video {
     margin-left: 2vh;
     border: none;
     transition: background-color 0.25s;
-    color: green;
+    color: chartreuse;
 }
 
 iframe {
