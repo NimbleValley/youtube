@@ -1,4 +1,4 @@
-const keys = ["AIzaSyAYNCrI8eJBlx_2tXo50VCphZSjRkXErF4", "AIzaSyB6hVYRqFlkAvPGYmrKaQ-DlIdK8GMAOuw"];
+const keys = ["AIzaSyAYNCrI8eJBlx_2tXo50VCphZSjRkXErF4", "AIzaSyB6hVYRqFlkAvPGYmrKaQ-DlIdK8GMAOuw", "AIzaSyDTue0cZa34nSVirfAyOMQPJhzOeynXZio", "AIzaSyCsOdYt7b-QJTkavtD3gG4URBvXnkHSw18"];
 var keyIndex = 0;
 
 gapi.load("client", loadClient);
