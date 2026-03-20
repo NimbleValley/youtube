@@ -63,6 +63,7 @@ function execute() {
                     const videoTitle = item.snippet.title;
                     const channelTitle = item.snippet.channelTitle;
                     const dimension = item;
+                    const liveStatus = item.snippet.liveBroadcastContent;
                     console.log(dimension);
                     output += `
                     <li><a onclick="showVideo('${videoId}', '${item.snippet.channelId}')"><img src="http://i3.ytimg.com/vi/${videoId}/hqdefault.jpg" /></a><p><strong>${channelTitle}</strong> - ${videoTitle}</p></li>
@@ -98,7 +99,6 @@ function showVideo(data, channel) {
     document.body.style.overflow = "hidden";
 
     videoContainer.innerHTML = `<iframe id="video" src="https://www.youtube-nocookie.com/embed/${data}" title="Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    <iframe src="https://www.youtube-nocookie.com/embed/live_stream?channel=${channel}"></iframe>
     `;
 
 }
