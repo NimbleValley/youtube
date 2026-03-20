@@ -98,7 +98,7 @@ function showVideo(data, channel) {
     document.body.style.overflow = "hidden";
 
     videoContainer.innerHTML = `<iframe id="video" src="https://www.youtube-nocookie.com/embed/${data}" title="Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/live_stream?channel=${channel}"></iframe>
+    <iframe src="https://www.youtube-nocookie.com/embed/live_stream?channel=${channel}"></iframe>
     `;
 
 }
