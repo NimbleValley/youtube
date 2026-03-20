@@ -65,7 +65,7 @@ function execute() {
                     const dimension = item;
                     console.log(dimension);
                     output += `
-                    <li><a onclick="showVideo('${videoId}', '${item.snippet.channelID}')"><img src="http://i3.ytimg.com/vi/${videoId}/hqdefault.jpg" /></a><p><strong>${channelTitle}</strong> - ${videoTitle}</p></li>
+                    <li><a onclick="showVideo(${videoId}, ${item.snippet.channelID})"><img src="http://i3.ytimg.com/vi/${videoId}/hqdefault.jpg" /></a><p><strong>${channelTitle}</strong> - ${videoTitle}</p></li>
                 `;
                 });
                 output += '</ul>';
