@@ -65,7 +65,7 @@ function execute() {
                     const dimension = item;
                     console.log(dimension);
                     output += `
-                    <li><a onclick="showVideo('${videoId}')"><img src="http://i3.ytimg.com/vi/${videoId}/hqdefault.jpg" /></a><p><strong>${channelTitle}</strong> - ${videoTitle}</p></li>
+                    <li><a onclick="showVideo('${videoId, item.snippet.channelID}')"><img src="http://i3.ytimg.com/vi/${videoId}/hqdefault.jpg" /></a><p><strong>${channelTitle}</strong> - ${videoTitle}</p></li>
                 `;
                 });
                 output += '</ul>';
@@ -92,12 +92,45 @@ function execute() {
         });
 }
 
-function showVideo(data) {
+function showVideo(data, channel) {
     videoPlayerContainer.style.display = "block";
     document.body.style.overflow = "hidden";
 
-    videoContainer.innerHTML = `<iframe id="video" src="https://www.youtube-nocookie.com/embed/${data}" title="Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    videoContainer.innerHTML = `<iframe id="video" src="https://www.youtube-nocookie.com/embed/${data}" title="Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/live_stream?channel=${channel}"></iframe>
+    `;
 
+}
+
+function getYouTubeVideoId(url) {
+    try {
+        let u = new URL(url);
+
+        // Case 1: Standard watch?v=
+        if (u.searchParams.get("v")) {
+            return u.searchParams.get("v");
+        }
+
+        // Case 2: youtu.be short links
+        if (u.hostname === "youtu.be") {
+            return u.pathname.slice(1);
+        }
+
+        // Case 3: /live livestream URL -> extract the actual video via YouTube redirect
+        if (u.pathname.endsWith("/live")) {
+            return fetch(url, { method: "GET" })
+                .then(resp => resp.text())
+                .then(html => {
+                    // Get first occurrence of "videoId":"<id>"
+                    const match = html.match(/"videoId":"(.*?)"/);
+                    return match ? match[1] : null;
+                });
+        }
+
+        return null;
+    } catch (e) {
+        return null;
+    }
 }
 
 function hideVideo() {
